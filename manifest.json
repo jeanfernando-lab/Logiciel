@@ -1,8 +1,10 @@
 {
+  "id": "/Logiciel/",
   "name": "Sistèm POS Pro Biznis",
   "short_name": "POS Pro",
   "description": "Yon aplikasyon jesyon ak kès pou biznis ou",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f0f2f5",
   "theme_color": "#2c3e50",
