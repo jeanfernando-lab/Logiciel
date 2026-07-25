@@ -1,0 +1,15 @@
+{
+  "name": "Sistèm POS Pro Biznis",
+  "short_name": "POS Pro",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f0f2f5",
+  "theme_color": "#2c3e50",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

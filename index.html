@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistèm POS Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <!-- PAJ KONEKSYON (LOGIN) -->
+        <!-- PAJ KONEKSYON (LOGIN) -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <h2 style="color:#2c3e50;">🔒 Aksè Limite</h2>
+            <p style="color: gray; margin-bottom: 20px;">Tanpri konekte pou w ka kontinye.</p>
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Antre non ou">
+                <input type="password" id="password" placeholder="Antre modpas ou">
+                <button class="btn-blue" onclick="konekte()">Konekte</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP (Kache jiskaske yo konekte) -->
+    <div id="main-app" style="display: none;">
+        <div class="top-bar no-print">
+            <h1>🏢 Sistèm Jesyon Pro <span id="user-display" style="font-size: 16px; color:#f1c40f;"></span></h1>
+            <button class="btn-red" onclick="dekonekte()">Dekonekte</button>
+        </div>
+
+        <div class="dashboard no-print">
+            
+            <!-- PANO GÒCH: ESTÒK (Sèlman Admin ka wè l) -->
+            <div id="admin-panel" class="panel">
+                <div class="panel-header"><h2>📦 Estòk & Rapò (Admin)</h2></div>
+                
+                <div class="form-group">
+                    <input type="text" id="nom-estok" placeholder="Non Pwodwi">
+                    <select id="kategori-estok">
+                        <option value="Pwovizyon">Pwovizyon</option>
+                        <option value="Bwason">Bwason</option>
+                        <option value="Lòt">Lòt Bagay</option>
+                    </select>
+                </div>
+                <div class="form-group" style="flex-direction: row;">
+                    <input type="number" id="kantite-estok" placeholder="Kantite">
+                    <input type="number" id="pri-acha" placeholder="Pri Acha (HTG)">
+                    <input type="number" id="pri-vant" placeholder="Pri Vant (HTG)">
+                </div>
+                <button class="btn-blue" onclick="ajouteNanEstok()">Anrejistre Pwodwi</button>
+
+                <table>
+                    <thead>
+                        <tr><th>Pwodwi</th><th>Qte</th><th>Pri Acha</th><th>Pri Vant</th></tr>
+                    </thead>
+                    <tbody id="estok-body"></tbody>
+                </table>
+                
+                <div class="stats-box" style="background-color: #8e44ad; margin-top: 20px;">
+                    <button class="btn-green" onclick="femenKes()">Fèmen Kès Jounen an</button>
+                    <p>Total Pwofi (Benefis): <span class="highlight" id="total-pwofi">0</span> HTG</p>
+                </div>
+            </div>
+
+            <!-- PANO DWA: KÈS & PANYEN (Tout moun ka wè l) -->
+            <div class="panel">
+                <div class="panel-header"><h2>🛒 Kès (Mòd Vant)</h2></div>
+                
+                <div class="form-group" style="flex-direction: row;">
+                    <select id="select-pwodwi" style="flex: 2;"><option value="">-- Chwazi Pwodwi --</option></select>
+                    <input type="number" id="kantite-vann" placeholder="Qte" value="1" style="flex: 1;">
+                    <button class="btn-blue" onclick="ajouteNanPanyen()">Mete nan Panyen</button>
+                </div>
+
+                <h3 style="border-top: 1px solid #eee; padding-top: 10px;">Panyen Kliyan an</h3>
+                <table>
+                    <thead><tr><th>Pwodwi</th><th>Qte</th><th>Total</th><th>Aksyon</th></tr></thead>
+                    <tbody id="panyen-body"></tbody>
+                </table>
+
+                <div class="stats-box" style="background-color: #27ae60;">
+                    Total Panyen an: <span class="highlight" id="total-panyen">0</span> HTG
+                </div>
+                <button class="btn-green" style="padding: 15px; font-size: 18px;" onclick="valideVantLan()">💵 Valide Vant lan & Enprime Resi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZÒN RESI (Afiche sèlman sou papye lè w'ap enprime) -->
+    <div id="resi-print" class="print-only">
+        <h2 style="text-align: center;">BÒDI BIZNIS SA</h2>
+        <p style="text-align: center;">Tlf: +509 3000-0000</p>
+        <p>Dat: <span id="resi-dat"></span></p>
+        <hr>
+        <table style="width: 100%; text-align: left;">
+            <thead><tr><th>Atik</th><th>Qte</th><th>Pri</th></tr></thead>
+            <tbody id="resi-body"></tbody>
+        </table>
+        <hr>
+        <h3 style="text-align: right;">Total: <span id="resi-total">0</span> HTG</h3>
+        <p style="text-align: center; font-size: 12px;">Mèsi pou acha ou a!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
