@@ -1,15 +1,26 @@
 {
   "name": "Sistèm POS Pro Biznis",
   "short_name": "POS Pro",
-  "start_url": "index.html",
+  "description": "Yon aplikasyon jesyon ak kès pou biznis ou",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f0f2f5",
   "theme_color": "#2c3e50",
+  "lang": "ht",
+  "dir": "ltr",
+  "orientation": "any",
   "icons": [
     {
-      "src": "logos.jpg",
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/jpg"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
